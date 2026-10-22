@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Game Night",
+    "slug": "game-night",
+    "scheme": "gamenight",
+    "plugins": [
+      "expo-font",
+      "expo-router",
+      "expo-splash-screen",
+      "expo-status-bar"
+    ]
+  }
+}

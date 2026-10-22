@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Πόσα πλήκτρα έχει ένα κλασικό πιάνο;",
+    "answer": "88",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα κόκαλα έχει ένας ενήλικας;",
+    "answer": "206",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσες καρδιές έχει ένα χταπόδι;",
+    "answer": "3",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα τετράγωνα έχει μια σκακιέρα;",
+    "answer": "64",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσες φορές χτυπά περίπου η καρδιά μας μέσα σε μία μέρα;",
+    "answer": "100.000",
+    "closestWins": true
+  },
+  {
+    "question": "Πόσα γράμματα έχει το ελληνικό αλφάβητο;",
+    "answer": "24",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσες τελείες έχει συνολικά ένα ζάρι;",
+    "answer": "21",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα φύλλα έχει μια τράπουλα χωρίς τζόκερ;",
+    "answer": "52",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα δόντια έχει ένας ενήλικας μαζί με τους φρονιμίτες;",
+    "answer": "32",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσες πολιτείες έχουν οι ΗΠΑ;",
+    "answer": "50",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα μέτρα ύψος έχει ο Όλυμπος (ο Μύτικας);",
+    "answer": "2.918",
+    "closestWins": true
+  },
+  {
+    "question": "Πόσες ώρες την ημέρα κοιμάται περίπου ένα κοάλα;",
+    "answer": "20",
+    "closestWins": true
+  },
+  {
+    "question": "Πόσους μήνες περίπου κυοφορεί ο ελέφαντας;",
+    "answer": "22",
+    "closestWins": true
+  },
+  {
+    "question": "Σε πόσους βαθμούς Φαρενάιτ βράζει το νερό;",
+    "answer": "212",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα πόδια έχει μια αράχνη;",
+    "answer": "8",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα λεπτά καθαρού χρόνου έχει ένας αγώνας μπάσκετ FIBA;",
+    "answer": "40",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσοι κύκλοι υπάρχουν στο σήμα των Ολυμπιακών Αγώνων;",
+    "answer": "5",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα μάτια έχει μια μέλισσα;",
+    "answer": "5",
+    "closestWins": false
+  },
+  {
+    "question": "Πόσα λεπτά χρειάζεται το φως του Ήλιου για να φτάσει στη Γη;",
+    "answer": "8",
+    "closestWins": true
+  },
+  {
+    "question": "Πόσες «καρδιές» έχει ένας γαιοσκώληκας;",
+    "answer": "5",
+    "closestWins": false
+  }
+]
