@@ -1,0 +1,54 @@
+# Builds the game-night web app and publishes it to GitHub Pages
+# every time something in game-night/ is pushed to main.
+name: Deploy Game Night to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'game-night/**'
+      - '.github/workflows/deploy-game-night.yml'
+  # Adds a "Run workflow" button in the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; a newer push cancels an older deploy
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: game-night
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: game-night/package-lock.json
+
+      - run: npm ci
+      - run: npm run build:pages
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: game-night/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
