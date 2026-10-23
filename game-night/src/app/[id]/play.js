@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import Bubbles from '../../components/Bubbles';
 import RevealAnswer from '../../components/RevealAnswer';
 import RoundButton from '../../components/RoundButton';
 import { getCards } from '../../data/cards';
@@ -43,6 +44,8 @@ export default function PlayScreen() {
 
   return (
     <SafeAreaView style={styles.screen}>
+      <Bubbles />
+
       <View style={styles.header}>
         <Text style={styles.title}>{game.title}</Text>
         <Text style={styles.counter}>
@@ -85,14 +88,18 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: theme.fonts.heading,
     fontSize: theme.fontSizes.heading,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: theme.colors.text,
+    // A hard pink shadow, like a second layer of spray paint
+    textShadowColor: theme.colors.title,
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 0,
   },
   counter: {
-    fontFamily: theme.fonts.body,
+    fontFamily: theme.fonts.heading,
     fontSize: theme.fontSizes.small,
-    color: theme.colors.textMuted,
+    letterSpacing: 2,
+    color: theme.colors.accent,
   },
   card: {
     alignItems: 'center',
@@ -108,7 +115,6 @@ const styles = StyleSheet.create({
   prompt: {
     fontFamily: theme.fonts.heading,
     fontSize: theme.fontSizes.large,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: theme.colors.text,
   },

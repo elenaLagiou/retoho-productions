@@ -2,6 +2,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import Bubbles from '../../components/Bubbles';
 import Footer from '../../components/Footer';
 import RoundButton from '../../components/RoundButton';
 import games from '../../data/games.json';
@@ -26,13 +27,21 @@ export default function InstructionsScreen() {
 
   return (
     <SafeAreaView style={styles.screen}>
+      <Bubbles />
+
       <View style={styles.content}>
         <Text style={styles.title}>{game.title}</Text>
 
-        {/* A card with a stripe in the game's own color on top */}
-        <View style={[styles.card, { borderTopColor: theme.colors.games[game.id] }]}>
-          <Text style={styles.subtitle}>ΠΩΣ ΠΑΙΖΕΤΑΙ</Text>
+        {/* A comic speech bubble, with a sticker label in the game's color */}
+        <View style={styles.bubble}>
+          <View style={[styles.label, { backgroundColor: theme.colors.games[game.id] }]}>
+            <Text style={styles.subtitle}>ΠΩΣ ΠΑΙΖΕΤΑΙ</Text>
+          </View>
           <Text style={styles.instructions}>{game.instructions}</Text>
+
+          {/* The little tail at the bottom: a square turned 45°,
+              with an outline only on the two sides that show */}
+          <View style={styles.tail} />
         </View>
       </View>
 
@@ -55,45 +64,66 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
-    gap: theme.spacing.md,
+    gap: theme.spacing.lg,
     maxWidth: 480,
   },
   title: {
     fontFamily: theme.fonts.heading,
     fontSize: theme.fontSizes.heading,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: theme.colors.text,
+    // A hard pink shadow, like a second layer of spray paint
+    textShadowColor: theme.colors.title,
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 0,
   },
-  card: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: theme.radius.tile,
-    borderTopWidth: 6,
-    paddingVertical: theme.spacing.lg,
+  bubble: {
+    backgroundColor: theme.colors.bubble,
+    borderRadius: theme.radius.bubble,
+    borderWidth: theme.depth.outline,
+    borderColor: theme.colors.outline,
+    paddingTop: theme.spacing.xl,
+    paddingBottom: theme.spacing.lg,
     paddingHorizontal: theme.spacing.lg,
-    gap: theme.spacing.sm,
     alignItems: 'center',
-    // A soft shadow so the card floats a little above the background
-    shadowColor: theme.colors.text,
-    shadowOpacity: 0.08,
-    shadowRadius: 16,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 3,
+    // A hard comic-book shadow, no blur
+    boxShadow: `6px 6px 0px ${theme.colors.outline}`,
+  },
+  // The sticker that sits half outside the top of the bubble
+  label: {
+    position: 'absolute',
+    top: -16,
+    borderRadius: 999,
+    borderWidth: theme.depth.outline,
+    borderColor: theme.colors.outline,
+    paddingVertical: theme.spacing.xs,
+    paddingHorizontal: theme.spacing.md,
+    transform: [{ rotate: '-3deg' }],
   },
   subtitle: {
     fontFamily: theme.fonts.heading,
-    fontSize: theme.fontSizes.small - 2,
-    fontWeight: 'bold',
+    fontSize: theme.fontSizes.small,
     letterSpacing: 2,
-    color: theme.colors.textMuted,
+    color: theme.colors.tileText,
   },
   instructions: {
     fontFamily: theme.fonts.body,
     fontSize: 16,
     lineHeight: 26,
     textAlign: 'center',
-    color: theme.colors.text,
-    opacity: 0.85,
+    color: theme.colors.bubbleText,
+  },
+  tail: {
+    position: 'absolute',
+    bottom: -13,
+    left: '20%',
+    width: 22,
+    height: 22,
+    backgroundColor: theme.colors.bubble,
+    borderRightWidth: theme.depth.outline,
+    borderBottomWidth: theme.depth.outline,
+    borderColor: theme.colors.outline,
+    transform: [{ rotate: '45deg' }],
   },
   text: {
     fontFamily: theme.fonts.body,

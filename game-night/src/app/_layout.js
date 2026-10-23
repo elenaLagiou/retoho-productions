@@ -35,7 +35,7 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: theme.colors.background },
         }}
       />
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </>
   );
 }

@@ -1,35 +1,39 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 import theme from '../theme';
+import Pushable from './Pushable';
 
-// The gray pill-shaped button from the design (ΕΝΑΡΞΗ, ΑΠΑΝΤΗΣΗ, ...).
+// The chunky 3D bubble button (ΕΝΑΡΞΗ, ΑΠΑΝΤΗΣΗ, ...).
 export default function RoundButton({ label, onPress }) {
   return (
-    <Pressable
+    <Pushable
       onPress={onPress}
-      style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+      color={theme.colors.button}
+      sideColor={theme.colors.buttonSide}
+      depth={theme.depth.button}
+      radius={theme.radius.button}
+      faceStyle={styles.face}
     >
       <Text style={styles.label}>{label}</Text>
-    </Pressable>
+    </Pushable>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: theme.colors.button,
-    borderRadius: theme.radius.button,
-    paddingVertical: theme.spacing.sm + 2,
+  face: {
+    paddingVertical: theme.spacing.md - 2,
     paddingHorizontal: theme.spacing.lg,
-    minWidth: 140,
+    minWidth: 200,
     alignItems: 'center',
   },
-  pressed: {
-    opacity: 0.7,
-  },
   label: {
-    fontFamily: theme.fonts.body,
-    fontSize: theme.fontSizes.small,
+    fontFamily: theme.fonts.heading,
+    fontSize: theme.fontSizes.body,
     color: theme.colors.buttonText,
     letterSpacing: 1,
+    // A hard dark shadow under the letters, like a sticker
+    textShadowColor: theme.colors.outline,
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 0,
   },
 });

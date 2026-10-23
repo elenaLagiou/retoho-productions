@@ -1,42 +1,39 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 import theme from '../theme';
+import Pushable from './Pushable';
 
-// One colored square on the home screen.
-// It gets its title, color and what to do when pressed from the parent.
-export default function GameTile({ title, color, onPress }) {
+// One colored 3D tile on the home screen, a little tilted like a
+// sticker on a wall. It gets everything it shows from the parent.
+// sideColor is the darker side under the tile, tilt is e.g. '-3deg'.
+export default function GameTile({ title, color, sideColor, tilt, onPress }) {
   return (
-    <Pressable
+    <Pushable
       onPress={onPress}
-      style={({ pressed }) => [
-        styles.tile,
-        { backgroundColor: color },
-        pressed && styles.pressed,
-      ]}
+      color={color}
+      sideColor={sideColor}
+      depth={theme.depth.tile}
+      radius={theme.radius.tile}
+      style={{ transform: [{ rotate: tilt }] }}
+      faceStyle={styles.face}
     >
       <Text style={styles.text}>{title}</Text>
-    </Pressable>
+    </Pushable>
   );
 }
 
 const styles = StyleSheet.create({
-  tile: {
+  face: {
     width: 140,
     height: 140,
-    borderRadius: theme.radius.tile,
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing.md,
   },
-  pressed: {
-    transform: [{ scale: 0.95 }],
-    opacity: 0.85,
-  },
   text: {
-    fontFamily: theme.fonts.body,
+    fontFamily: theme.fonts.heading,
     fontSize: theme.fontSizes.body,
-    fontWeight: '600',
     textAlign: 'center',
-    color: theme.colors.text,
+    color: theme.colors.tileText,
   },
 });

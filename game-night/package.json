@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
-    "@expo-google-fonts/bebas-neue": "^0.4.1",
+    "@expo-google-fonts/comfortaa": "^0.4.2",
+    "@expo-google-fonts/rubik-bubbles": "^0.4.0",
     "@expo/metro-runtime": "~57.0.17",
     "expo": "~57.0.0",
     "expo-constants": "~57.0.22",

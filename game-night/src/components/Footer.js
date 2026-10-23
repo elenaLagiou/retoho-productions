@@ -10,7 +10,6 @@ export default function Footer() {
 const styles = StyleSheet.create({
   footer: {
     fontFamily: theme.fonts.body,
-    fontStyle: 'italic',
     color: theme.colors.textMuted,
   },
 });

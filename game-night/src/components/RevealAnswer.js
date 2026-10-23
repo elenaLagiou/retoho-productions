@@ -50,8 +50,11 @@ const styles = StyleSheet.create({
   answer: {
     fontFamily: theme.fonts.heading,
     fontSize: theme.fontSizes.heading,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: theme.colors.answer,
+    // Neon glow, like the title
+    textShadowColor: theme.colors.answerGlow,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 12,
   },
 });
